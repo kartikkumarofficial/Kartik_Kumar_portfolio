@@ -26,17 +26,17 @@ class GlassNavbar extends StatelessWidget {
     return ClipRRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-        child: Container(
-          height: screenHeight(context) * .08,
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-          decoration:
-          BoxDecoration(color: AppColors.bgDark.withValues(alpha: 0.12)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Flexible(
-                child: GestureDetector(
+        child: Padding(
+          padding: EdgeInsets.only(top: isSmallScreen ? 8.0 : 0.0),
+          child: Container(
+            height: screenHeight(context) * .08,
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            decoration:
+            BoxDecoration(color: AppColors.bgDark.withValues(alpha: 0.12)),
+            child: Row(
+              children: [
+                GestureDetector(
                   onTap: () => onNavigationTap?.call(0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -47,7 +47,6 @@ class GlassNavbar extends StatelessWidget {
                         style: GoogleFonts.inter(
                           fontSize: logoFontSize,
                           fontWeight: FontWeight.w600,
-                          letterSpacing: 0,
                         ),
                       ),
                       SizedBox(width: isSmallScreen ? 6.0 : 8.0),
@@ -58,21 +57,18 @@ class GlassNavbar extends StatelessWidget {
                           style: TextStyle(
                             fontFamily: 'BurguesScript',
                             fontSize: logoFontSize,
-                            // letterSpacing: 0,
                           ),
                         ),
                       ),
                     ],
                   ),
                 ),
-              ),
-              Flexible(
-                flex: 2,
-                child: isSmallScreen
+                const Spacer(),
+                isSmallScreen
                     ? _buildCompactNav(itemSpacing)
                     : _buildFullNav(itemSpacing),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

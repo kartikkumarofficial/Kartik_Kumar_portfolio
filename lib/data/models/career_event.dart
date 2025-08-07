@@ -31,7 +31,7 @@ class CareerEvent {
     const CareerEvent(
       year: 2024,
       title: 'MMDU',
-      description: "Started College",
+      description: "Started my formal academic journey in engineering",
       icon: Icons.code,
       company: 'Maharishi Markandeshwar(Deemed to be University)',
       location: 'Ambala,Haryana',
@@ -40,7 +40,7 @@ class CareerEvent {
       year: 2024,
       title: 'Flutter Developer',
       description:
-          "Specialized in Flutter, my focus was creating new and innovative flutter applications that leverage the framework's capabilities for high performance and beautiful UI.",
+          "Specialized in Flutter, my focus is in creating new and innovative flutter applications that leverage the framework's capabilities for high performance and beautiful UI.",
       icon: Icons.code,
       company: 'GDG',
       location: 'Ambala,Haryana',
