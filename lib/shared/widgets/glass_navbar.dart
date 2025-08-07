@@ -17,13 +17,11 @@ class GlassNavbar extends StatelessWidget {
     final isSmallScreen = screenWidth < 800;
     final isMediumScreen = screenWidth < 1200;
 
+    final double logoFontSize = isSmallScreen ? 22.0 : 30.0;
+
     final horizontalPadding = isSmallScreen ? 20.0 : 40.0;
     final itemSpacing =
-        isSmallScreen
-            ? 16.0
-            : isMediumScreen
-            ? 24.0
-            : 40.0;
+    isSmallScreen ? 16.0 : (isMediumScreen ? 24.0 : 40.0);
 
     return ClipRRect(
       child: BackdropFilter(
@@ -32,57 +30,48 @@ class GlassNavbar extends StatelessWidget {
           height: screenHeight(context) * .08,
           width: double.infinity,
           padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-          decoration: BoxDecoration(color: AppColors.bgDark.withValues(alpha: 0.12)),
+          decoration:
+          BoxDecoration(color: AppColors.bgDark.withValues(alpha: 0.12)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                 child: GestureDetector(
                   onTap: () => onNavigationTap?.call(0),
-                  child:  Container(
-                    // color: Colors.red,
-                    width: screenWidth*0.2,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text('KARTIK',
-                          style: GoogleFonts.inter(
-                              fontSize: 30,
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: 0
-                          ),),
-                        Padding(
-                          padding:  EdgeInsets.only(top: 7),
-                          child: Text('    Kumar',
-                            style: TextStyle(
-                                fontFamily: 'BurguesScript',
-                                fontSize: 30,
-                                // fontWeight: FontWeight.w600,
-                                letterSpacing: -5
-                            ),),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'KARTIK',
+                        style: GoogleFonts.inter(
+                          fontSize: logoFontSize,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0,
                         ),
-
-
-                      ],),
+                      ),
+                      SizedBox(width: isSmallScreen ? 6.0 : 8.0),
+                      Padding(
+                        padding: EdgeInsets.only(top: isSmallScreen ? 4 : 7),
+                        child: Text(
+                          'Kumar',
+                          style: TextStyle(
+                            fontFamily: 'BurguesScript',
+                            fontSize: logoFontSize,
+                            // letterSpacing: 0,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  // child: Image.asset(
-                  //   'assets/images/logo_bg_enh.png',
-                  //   height: isSmallScreen ? 28 : 32,
-                  //   fit: BoxFit.contain,
-                  //   color: AppColors.textPrimary,
-                  //   errorBuilder:
-                  //       (context, error, stackTrace) => Container(
-                  //         height: isSmallScreen ? 28 : 32,
-                  //         width: 60,
-                  //         color: AppColors.textPrimary.withValues(alpha: 0.1),
-                  //         child: const Icon(Icons.image_not_supported, color: AppColors.textPrimary, size: 16),
-                  //       ),
-                  // ),
                 ),
               ),
-
-              Flexible(flex: 2, child: isSmallScreen ? _buildCompactNav(itemSpacing) : _buildFullNav(itemSpacing)),
+              Flexible(
+                flex: 2,
+                child: isSmallScreen
+                    ? _buildCompactNav(itemSpacing)
+                    : _buildFullNav(itemSpacing),
+              ),
             ],
           ),
         ),
@@ -129,7 +118,8 @@ class _AnimatedNavItem extends StatefulWidget {
   State<_AnimatedNavItem> createState() => _AnimatedNavItemState();
 }
 
-class _AnimatedNavItemState extends State<_AnimatedNavItem> with SingleTickerProviderStateMixin {
+class _AnimatedNavItemState extends State<_AnimatedNavItem>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
   bool _isHovering = false;
@@ -144,9 +134,11 @@ class _AnimatedNavItemState extends State<_AnimatedNavItem> with SingleTickerPro
     _originalText = widget.text;
     _displayText = _originalText;
 
-    _controller = AnimationController(duration: const Duration(milliseconds: 300), vsync: this);
+    _controller = AnimationController(
+        duration: const Duration(milliseconds: 300), vsync: this);
 
-    _animation = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    _animation = Tween<double>(begin: 0, end: 1)
+        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
   }
 
   @override
@@ -229,36 +221,39 @@ class _AnimatedNavItemState extends State<_AnimatedNavItem> with SingleTickerPro
         onTap: () => widget.onTap?.call(widget.index),
         child: AnimatedBuilder(
           animation: _animation,
-          builder:
-              (context, child) => AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: _isHovering ? AppColors.glassSurface.withValues(alpha: 0.3) : Colors.transparent,
-                  border: _isHovering ? Border.all(color: AppColors.textPrimary.withValues(alpha: 0.2)) : null,
-                  boxShadow:
-                      _isHovering
-                          ? [
-                            BoxShadow(
-                              color: AppColors.accent.withValues(alpha: 0.1),
-                              blurRadius: 8,
-                              offset: const Offset(0, 2),
-                            ),
-                          ]
-                          : null,
+          builder: (context, child) => AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: _isHovering
+                  ? AppColors.glassSurface.withValues(alpha: 0.3)
+                  : Colors.transparent,
+              border: _isHovering
+                  ? Border.all(color: AppColors.textPrimary.withValues(alpha: 0.2))
+                  : null,
+              boxShadow: _isHovering
+                  ? [
+                BoxShadow(
+                  color: AppColors.accent.withValues(alpha: 0.1),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
                 ),
-                child: Text(
-                  _displayText,
-                  style: TextStyle(
-                    fontSize: fontSize,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 0.5,
-                    color: AppColors.textPrimary.withValues(alpha: _isHovering ? 1.0 : 0.8),
-                    fontFamily: 'Nunito', // Using the same font as the theme
-                  ),
-                ),
+              ]
+                  : null,
+            ),
+            child: Text(
+              _displayText,
+              style: TextStyle(
+                fontSize: fontSize,
+                fontWeight: FontWeight.w400,
+                letterSpacing: 0.5,
+                color:
+                AppColors.textPrimary.withValues(alpha: _isHovering ? 1.0 : 0.8),
+                fontFamily: 'Nunito',
               ),
+            ),
+          ),
         ),
       ),
     );
