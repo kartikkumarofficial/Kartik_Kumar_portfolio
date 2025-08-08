@@ -1,9 +1,14 @@
 import 'dart:async';
+
 import 'dart:math';
+
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant.dart';
+
 import 'package:portfolio/core/theme/app_theme.dart';
 
 class GlassNavbar extends StatelessWidget {
@@ -14,48 +19,67 @@ class GlassNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+
     final isSmallScreen = screenWidth < 800;
+
     final isMediumScreen = screenWidth < 1200;
 
     final double logoFontSize = isSmallScreen ? 22.0 : 30.0;
 
     final horizontalPadding = isSmallScreen ? 20.0 : 40.0;
-    final itemSpacing =
-    isSmallScreen ? 16.0 : (isMediumScreen ? 24.0 : 40.0);
+
+    final itemSpacing = isSmallScreen ? 16.0 : (isMediumScreen ? 24.0 : 40.0);
 
     return ClipRRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+
         child: Padding(
           padding: EdgeInsets.only(top: isSmallScreen ? 8.0 : 0.0),
+
           child: Container(
             height: screenHeight(context) * .08,
+
             width: double.infinity,
+
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            decoration:
-            BoxDecoration(color: AppColors.bgDark.withValues(alpha: 0.12)),
+
+            decoration: BoxDecoration(
+              color: AppColors.bgDark.withValues(alpha: 0.12),
+            ),
+
             child: Row(
               children: [
                 GestureDetector(
                   onTap: () => onNavigationTap?.call(0),
+
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
+
                     crossAxisAlignment: CrossAxisAlignment.center,
+
                     children: [
                       Text(
                         'KARTIK',
+
                         style: GoogleFonts.inter(
                           fontSize: logoFontSize,
+
                           fontWeight: FontWeight.w600,
                         ),
                       ),
+
                       SizedBox(width: isSmallScreen ? 6.0 : 8.0),
+
                       Padding(
                         padding: EdgeInsets.only(top: isSmallScreen ? 4 : 7),
+
                         child: Text(
                           'Kumar',
+
                           style: TextStyle(
                             fontFamily: 'BurguesScript',
+
                             fontSize: logoFontSize,
                           ),
                         ),
@@ -63,7 +87,9 @@ class GlassNavbar extends StatelessWidget {
                     ],
                   ),
                 ),
+
                 const Spacer(),
+
                 isSmallScreen
                     ? _buildCompactNav(itemSpacing)
                     : _buildFullNav(itemSpacing),
@@ -77,26 +103,39 @@ class GlassNavbar extends StatelessWidget {
 
   Widget _buildFullNav(double spacing) => Row(
     mainAxisAlignment: MainAxisAlignment.end,
+
     children: [
       _AnimatedNavItem(text: 'About', index: 1, onTap: onNavigationTap),
+
       SizedBox(width: spacing),
+
       _AnimatedNavItem(text: 'Timeline', index: 2, onTap: onNavigationTap),
+
       SizedBox(width: spacing),
+
       _AnimatedNavItem(text: 'Works', index: 3, onTap: onNavigationTap),
+
       SizedBox(width: spacing),
+
       _AnimatedNavItem(text: 'Contact', index: 5, onTap: onNavigationTap),
     ],
   );
 
   Widget _buildCompactNav(double spacing) => SingleChildScrollView(
     scrollDirection: Axis.horizontal,
+
     child: Row(
       mainAxisAlignment: MainAxisAlignment.end,
+
       children: [
         _AnimatedNavItem(text: 'About', index: 1, onTap: onNavigationTap),
-        SizedBox(width: spacing),
+
+        // SizedBox(width: spacing),
+
         _AnimatedNavItem(text: 'Works', index: 3, onTap: onNavigationTap),
-        SizedBox(width: spacing),
+
+        // SizedBox(width: spacing),
+
         _AnimatedNavItem(text: 'Contact', index: 5, onTap: onNavigationTap),
       ],
     ),
@@ -107,7 +146,9 @@ class _AnimatedNavItem extends StatefulWidget {
   const _AnimatedNavItem({required this.text, required this.index, this.onTap});
 
   final String text;
+
   final int index;
+
   final Function(int)? onTap;
 
   @override
@@ -117,31 +158,46 @@ class _AnimatedNavItem extends StatefulWidget {
 class _AnimatedNavItemState extends State<_AnimatedNavItem>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+
   late Animation<double> _animation;
+
   bool _isHovering = false;
+
   String _displayText = '';
+
   String _originalText = '';
+
   Timer? _scrambleTimer;
+
   Timer? _resetTimer;
 
   @override
   void initState() {
     super.initState();
+
     _originalText = widget.text;
+
     _displayText = _originalText;
 
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 300), vsync: this);
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
 
-    _animation = Tween<double>(begin: 0, end: 1)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    _animation = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
   }
 
   @override
   void dispose() {
     _scrambleTimer?.cancel();
+
     _resetTimer?.cancel();
+
     _controller.dispose();
+
     super.dispose();
   }
 
@@ -151,9 +207,11 @@ class _AnimatedNavItemState extends State<_AnimatedNavItem>
     }
 
     final random = Random();
+
     const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
     var randomizedText = '';
+
     for (var i = 0; i < _originalText.length; i++) {
       if (_originalText[i] == ' ') {
         randomizedText += ' ';
@@ -184,11 +242,13 @@ class _AnimatedNavItemState extends State<_AnimatedNavItem>
 
     if (hovering) {
       _controller.forward();
+
       _startRandomizeAnimation();
 
       _resetTimer = Timer(const Duration(milliseconds: 600), () {
         if (_isHovering && mounted) {
           _scrambleTimer?.cancel();
+
           setState(() {
             _displayText = _originalText;
           });
@@ -196,8 +256,11 @@ class _AnimatedNavItemState extends State<_AnimatedNavItem>
       });
     } else {
       _controller.reverse();
+
       _scrambleTimer?.cancel();
+
       _resetTimer?.cancel();
+
       setState(() {
         _displayText = _originalText;
       });
@@ -207,45 +270,67 @@ class _AnimatedNavItemState extends State<_AnimatedNavItem>
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+
     final isSmallScreen = screenWidth < 800;
+
     final fontSize = isSmallScreen ? 12.0 : 14.0;
 
     return MouseRegion(
       onEnter: (_) => _onHover(true),
+
       onExit: (_) => _onHover(false),
+
       child: GestureDetector(
         onTap: () => widget.onTap?.call(widget.index),
+
         child: AnimatedBuilder(
           animation: _animation,
+
           builder: (context, child) => AnimatedContainer(
             duration: const Duration(milliseconds: 300),
+
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
+
               color: _isHovering
                   ? AppColors.glassSurface.withValues(alpha: 0.3)
                   : Colors.transparent,
+
               border: _isHovering
-                  ? Border.all(color: AppColors.textPrimary.withValues(alpha: 0.2))
+                  ? Border.all(
+                      color: AppColors.textPrimary.withValues(alpha: 0.2),
+                    )
                   : null,
+
               boxShadow: _isHovering
                   ? [
-                BoxShadow(
-                  color: AppColors.accent.withValues(alpha: 0.1),
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ]
+                      BoxShadow(
+                        color: AppColors.accent.withValues(alpha: 0.1),
+
+                        blurRadius: 8,
+
+                        offset: const Offset(0, 2),
+                      ),
+                    ]
                   : null,
             ),
+
             child: Text(
               _displayText,
+
               style: TextStyle(
                 fontSize: fontSize,
+
                 fontWeight: FontWeight.w400,
+
                 letterSpacing: 0.5,
-                color:
-                AppColors.textPrimary.withValues(alpha: _isHovering ? 1.0 : 0.8),
+
+                color: AppColors.textPrimary.withValues(
+                  alpha: _isHovering ? 1.0 : 0.8,
+                ),
+
                 fontFamily: 'Nunito',
               ),
             ),

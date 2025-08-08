@@ -89,7 +89,7 @@ class _WorksSectionState extends State<WorksSection> {
           .clamp(0.0, 1.0);
 
       final maxScrollDistance =
-          (_textWidth > screenWidth) ? (_textWidth - screenWidth + horizontalPadding(context) * 4) * 1.1 : 0.0;
+      (_textWidth > screenWidth) ? (_textWidth - screenWidth + horizontalPadding(context) * 4) * 1.1 : 0.0;
 
       setState(() {
         _headerScrollOffset = sectionProgress * maxScrollDistance;
@@ -246,12 +246,12 @@ class _WorksSectionState extends State<WorksSection> {
   );
 
   Widget _buildProject(
-    BuildContext context,
-    String title,
-    String description,
-    String imagePath,
-    ProjectType projectType,
-  ) {
+      BuildContext context,
+      String title,
+      String description,
+      String imagePath,
+      ProjectType projectType,
+      ) {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 768;
 
@@ -265,89 +265,135 @@ class _WorksSectionState extends State<WorksSection> {
   }
 
   Widget _buildMobileLayout(
-    BuildContext context,
-    String title,
-    String description,
-    String imagePath,
-    ProjectType projectType,
-  ) => LayoutBuilder(
+      BuildContext context,
+      String title,
+      String description,
+      String imagePath,
+      ProjectType projectType,
+      ) => LayoutBuilder(
     builder:
         (context, constraints) => Container(
-          padding: EdgeInsets.symmetric(vertical: verticalPadding(context), horizontal: horizontalPadding(context)),
-          decoration: const BoxDecoration(
-            color: AppColors.bgDark,
-            image: DecorationImage(image: AssetImage('assets/images/workBg.png'), fit: BoxFit.cover),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: verticalPadding(context) * 0.5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                        color: AppColors.bgDark,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 24,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    Text(
-                      description,
-                      style: Theme.of(
-                        context,
-                      ).textTheme.bodyLarge!.copyWith(color: AppColors.bgDark, fontSize: 14, height: 1.4),
-                    ),
-                  ],
+      padding: EdgeInsets.symmetric(vertical: verticalPadding(context), horizontal: horizontalPadding(context)),
+      decoration: const BoxDecoration(
+        color: AppColors.bgDark,
+        image: DecorationImage(image: AssetImage('assets/images/workBg.png'), fit: BoxFit.cover),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: verticalPadding(context) * 0.5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    color: AppColors.bgDark,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 24,
+                  ),
                 ),
-              ),
-              Center(
-                child: SizedBox(
-                  height: screenHeight(context) * 0.4,
-                  width: screenWidth(context) * 0.85,
-                  child:
-                      projectType == ProjectType.mobile
-                          ? _ProjectImageCarouselMobile(
-                            imagePaths: [
-                              imagePath,
-                              imagePath.replaceAll('-1.', '-2.'),
-                              imagePath.replaceAll('-1.', '-3.'),
-                            ],
-                          )
-                          : _ProjectImageCarousel(
-                            imagePaths: [
-                              imagePath,
-                              imagePath.replaceAll('-1.', '-2.'),
-                              imagePath.replaceAll('-1.', '-3.'),
-                            ],
-                          ),
+                const SizedBox(height: 12),
+                Text(
+                  description,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge!.copyWith(color: AppColors.bgDark, fontSize: 14, height: 1.4),
                 ),
-              ),
-              SizedBox(height: verticalPadding(context) * 0.5),
-            ],
+              ],
+            ),
           ),
-        ),
+          Center(
+            child: SizedBox(
+              height: screenHeight(context) * 0.4,
+              width: screenWidth(context) * 0.85,
+              child:
+              projectType == ProjectType.mobile
+                  ? _ProjectImageCarouselMobile(
+                imagePaths: [
+                  imagePath,
+                  imagePath.replaceAll('-1.', '-2.'),
+                  imagePath.replaceAll('-1.', '-3.'),
+                ],
+              )
+                  : _ProjectImageCarousel(
+                imagePaths: [
+                  imagePath,
+                  imagePath.replaceAll('-1.', '-2.'),
+                  imagePath.replaceAll('-1.', '-3.'),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: verticalPadding(context) * 0.5),
+        ],
+      ),
+    ),
   );
 
   Widget _buildDesktopLayout(BuildContext context, String title, String description, String imagePath) => LayoutBuilder(
     builder:
         (context, constraints) => Container(
+      height: screenHeight(context),
+      width: double.infinity,
+      padding: EdgeInsets.symmetric(vertical: verticalPadding(context), horizontal: horizontalPadding(context)),
+      decoration: BoxDecoration(
+
+        color: AppColors.bgDark,
+        image: DecorationImage(image: AssetImage('assets/images/workBg.png'), fit: BoxFit.cover,),
+
+      ),
+      child: Row(
+        children: [
+          SizedBox(
+            width: screenWidth(context) * .15,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: verticalPadding(context) * 2),
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    color: AppColors.bgDark,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 28,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  description,
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: AppColors.bgDark, fontSize: 16),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(width: screenWidth(context) * .03),
+          Expanded(
+            child: _ProjectImageCarousel(
+              imagePaths: [imagePath, imagePath.replaceAll('-1.', '-2.'), imagePath.replaceAll('-1.', '-3.')],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+
+  Widget _buildDesktopMobileProjectLayout(BuildContext context, String title, String description, String imagePath) =>
+      LayoutBuilder(
+        builder:
+            (context, constraints) => Container(
           height: screenHeight(context),
           width: double.infinity,
           padding: EdgeInsets.symmetric(vertical: verticalPadding(context), horizontal: horizontalPadding(context)),
-          decoration: BoxDecoration(
-
+          decoration: const BoxDecoration(
             color: AppColors.bgDark,
-            image: DecorationImage(image: AssetImage('assets/images/workBg.png'), fit: BoxFit.cover,),
-
+            image: DecorationImage(image: AssetImage('assets/images/workBg.png'), fit: BoxFit.cover),
           ),
           child: Row(
             children: [
               SizedBox(
-                width: screenWidth(context) * .15,
+                width: screenWidth(context) * .18,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -370,110 +416,66 @@ class _WorksSectionState extends State<WorksSection> {
               ),
               SizedBox(width: screenWidth(context) * .03),
               Expanded(
-                child: _ProjectImageCarousel(
-                  imagePaths: [imagePath, imagePath.replaceAll('-1.', '-2.'), imagePath.replaceAll('-1.', '-3.')],
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Tilt(
+                        child: Image.asset(
+                          imagePath,
+                          fit: BoxFit.contain,
+                          height: screenHeight(context) * 0.7,
+                          errorBuilder:
+                              (context, error, stackTrace) => Container(
+                            height: screenHeight(context) * 0.7,
+                            width: 200,
+                            color: AppColors.bgDark.withOpacity(0.1),
+                            child: const Icon(Icons.image_not_supported, color: AppColors.textPrimary),
+                          ),
+                        ),
+                      ),
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child:Tilt(
+                        child: Image.asset(
+                          imagePath.replaceAll('-1.', '-2.'),
+                          fit: BoxFit.contain,
+                          height: screenHeight(context) * 0.7,
+                          errorBuilder:
+                              (context, error, stackTrace) => Container(
+                            height: screenHeight(context) * 0.7,
+                            width: 200,
+                            color: AppColors.bgDark.withOpacity(0.1),
+                            child: const Icon(Icons.image_not_supported, color: AppColors.textPrimary),
+                          ),
+                        ),
+                      ),
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child:Tilt(
+                        child: Image.asset(
+                          imagePath.replaceAll('-1.', '-3.'),
+                          fit: BoxFit.contain,
+                          height: screenHeight(context) * 0.7,
+                          errorBuilder:
+                              (context, error, stackTrace) => Container(
+                            height: screenHeight(context) * 0.7,
+                            width: 200,
+                            color: AppColors.bgDark.withOpacity(0.1),
+                            child: const Icon(Icons.image_not_supported, color: AppColors.textPrimary),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
         ),
-  );
-
-  Widget _buildDesktopMobileProjectLayout(BuildContext context, String title, String description, String imagePath) =>
-      LayoutBuilder(
-        builder:
-            (context, constraints) => Container(
-              height: screenHeight(context),
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(vertical: verticalPadding(context), horizontal: horizontalPadding(context)),
-              decoration: const BoxDecoration(
-                color: AppColors.bgDark,
-                image: DecorationImage(image: AssetImage('assets/images/workBg.png'), fit: BoxFit.cover),
-              ),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: screenWidth(context) * .18,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: verticalPadding(context) * 2),
-                        Text(
-                          title,
-                          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                            color: AppColors.bgDark,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 28,
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          description,
-                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: AppColors.bgDark, fontSize: 16),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: screenWidth(context) * .03),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(16.0),
-                          child: Tilt(
-                            child: Image.asset(
-                              imagePath,
-                              fit: BoxFit.contain,
-                              height: screenHeight(context) * 0.7,
-                              errorBuilder:
-                                  (context, error, stackTrace) => Container(
-                                    height: screenHeight(context) * 0.7,
-                                    width: 200,
-                                    color: AppColors.bgDark.withValues(alpha: 0.1),
-                                    child: const Icon(Icons.image_not_supported, color: AppColors.textPrimary),
-                                  ),
-                            ),
-                          ),
-                        ),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(16.0),
-                        child:Tilt(
-                          child: Image.asset(
-                            imagePath.replaceAll('-1.', '-2.'),
-                            fit: BoxFit.contain,
-                            height: screenHeight(context) * 0.7,
-                            errorBuilder:
-                                (context, error, stackTrace) => Container(
-                                  height: screenHeight(context) * 0.7,
-                                  width: 200,
-                                  color: AppColors.bgDark.withValues(alpha: 0.1),
-                                  child: const Icon(Icons.image_not_supported, color: AppColors.textPrimary),
-                                ),
-                          ),
-                        ),),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(16.0),
-                            child:Tilt(
-                          child: Image.asset(
-                            imagePath.replaceAll('-1.', '-3.'),
-                            fit: BoxFit.contain,
-                            height: screenHeight(context) * 0.7,
-                            errorBuilder:
-                                (context, error, stackTrace) => Container(
-                                  height: screenHeight(context) * 0.7,
-                                  width: 200,
-                                  color: AppColors.bgDark.withValues(alpha: 0.1),
-                                  child: const Icon(Icons.image_not_supported, color: AppColors.textPrimary),
-                                ),
-                          ),
-                        ),),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
       );
 }
 
@@ -511,8 +513,8 @@ class _ProjectImageCarouselState extends State<_ProjectImageCarousel> {
             child: Stack(
               children: [
                 PageView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  clipBehavior: Clip.none,
+                  physics: const BouncingScrollPhysics(),
+                  clipBehavior: Clip.hardEdge, // CHANGED
                   controller: _pageController,
                   onPageChanged: (index) {
                     setState(() {
@@ -523,25 +525,25 @@ class _ProjectImageCarouselState extends State<_ProjectImageCarousel> {
                   itemBuilder:
                       (context, index) => Container(
 
-                        margin: EdgeInsets.symmetric(horizontal: isMobile ? 4 : 8, vertical: isMobile ? 4 : 8),
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16.0),
-                          child: Tilt(
-                            child: Image.asset(
-                              widget.imagePaths[index],
-                              fit: BoxFit.contain,
-                              width: isMobile ? screenWidth * 0.85 : screenWidth * 0.7,
-                              errorBuilder:
-                                  (context, error, stackTrace) => Container(
-                                    width: isMobile ? screenWidth * 0.85 : screenWidth * 0.7,
-                                    height: 200,
-                                    color: AppColors.bgDark.withValues(alpha: 0.1),
-                                    child: const Icon(Icons.image_not_supported, color: AppColors.textPrimary),
-                                  ),
-                            ),
+                    margin: EdgeInsets.symmetric(horizontal: isMobile ? 4 : 8, vertical: isMobile ? 4 : 8),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Tilt(
+                        child: Image.asset(
+                          widget.imagePaths[index],
+                          fit: BoxFit.contain,
+                          width: isMobile ? screenWidth * 0.85 : screenWidth * 0.7,
+                          errorBuilder:
+                              (context, error, stackTrace) => Container(
+                            width: isMobile ? screenWidth * 0.85 : screenWidth * 0.7,
+                            height: 200,
+                            color: AppColors.bgDark.withOpacity(0.1),
+                            child: const Icon(Icons.image_not_supported, color: AppColors.textPrimary),
                           ),
                         ),
                       ),
+                    ),
+                  ),
                 ),
 
                 if (_currentPage > 0)
@@ -561,12 +563,12 @@ class _ProjectImageCarouselState extends State<_ProjectImageCarousel> {
                           width: isMobile ? 32 : 40,
                           height: isMobile ? 32 : 40,
                           decoration: BoxDecoration(
-                            color: AppColors.bgDark.withValues(alpha: 0.7),
+                            color: AppColors.bgDark.withOpacity(0.7),
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
                             Icons.chevron_left,
-                            color: Colors.white.withValues(alpha: 0.8),
+                            color: Colors.white.withOpacity(0.8),
                             size: isMobile ? 20 : 24,
                           ),
                         ),
@@ -591,12 +593,12 @@ class _ProjectImageCarouselState extends State<_ProjectImageCarousel> {
                           width: isMobile ? 32 : 40,
                           height: isMobile ? 32 : 40,
                           decoration: BoxDecoration(
-                            color: AppColors.bgDark.withValues(alpha: 0.7),
+                            color: AppColors.bgDark.withOpacity(0.7),
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
                             Icons.chevron_right,
-                            color: Colors.white.withValues(alpha: 0.8),
+                            color: Colors.white.withOpacity(0.8),
                             size: isMobile ? 20 : 24,
                           ),
                         ),
@@ -613,7 +615,7 @@ class _ProjectImageCarouselState extends State<_ProjectImageCarousel> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
               widget.imagePaths.length,
-              (index) => GestureDetector(
+                  (index) => GestureDetector(
                 onTap: () {
                   _pageController.animateToPage(
                     index,
@@ -628,9 +630,9 @@ class _ProjectImageCarouselState extends State<_ProjectImageCarousel> {
                   height: isMobile ? 6 : 8,
                   decoration: BoxDecoration(
                     color:
-                        _currentPage == index
-                            ? AppColors.bgDark.withValues(alpha: 0.8)
-                            : AppColors.bgDark.withValues(alpha: 0.3),
+                    _currentPage == index
+                        ? AppColors.bgDark.withOpacity(0.8)
+                        : AppColors.bgDark.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(4),
                   ),
                 ),
@@ -677,8 +679,8 @@ class _ProjectImageCarouselMobileState extends State<_ProjectImageCarouselMobile
             child: Stack(
               children: [
                 PageView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  clipBehavior: Clip.none,
+                  physics: const BouncingScrollPhysics(),
+                  clipBehavior: Clip.hardEdge, // CHANGED
                   controller: _pageController,
                   onPageChanged: (index) {
                     setState(() {
@@ -688,22 +690,25 @@ class _ProjectImageCarouselMobileState extends State<_ProjectImageCarouselMobile
                   itemCount: widget.imagePaths.length,
                   itemBuilder:
                       (context, index) => Container(
-                        margin: EdgeInsets.symmetric(horizontal: isMobile ? 4 : 8, vertical: isMobile ? 4 : 8),
-                        child: Tilt(
-                          child: Image.asset(
-                            widget.imagePaths[index],
-                            fit: BoxFit.contain,
+                    margin: EdgeInsets.symmetric(horizontal: isMobile ? 4 : 8, vertical: isMobile ? 4 : 8),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Tilt(
+                        child: Image.asset(
+                          widget.imagePaths[index],
+                          fit: BoxFit.contain,
+                          height: isMobile ? screenHeight * 0.4 : screenHeight * 0.8,
+                          errorBuilder:
+                              (context, error, stackTrace) => Container(
                             height: isMobile ? screenHeight * 0.4 : screenHeight * 0.8,
-                            errorBuilder:
-                                (context, error, stackTrace) => Container(
-                                  height: isMobile ? screenHeight * 0.4 : screenHeight * 0.8,
-                                  width: 200,
-                                  color: AppColors.bgDark.withValues(alpha: 0.1),
-                                  child: const Icon(Icons.image_not_supported, color: AppColors.textPrimary),
-                                ),
+                            width: 200,
+                            color: AppColors.bgDark.withOpacity(0.1),
+                            child: const Icon(Icons.image_not_supported, color: AppColors.textPrimary),
                           ),
                         ),
                       ),
+                    ),
+                  ),
                 ),
 
                 if (_currentPage > 0)
@@ -723,12 +728,12 @@ class _ProjectImageCarouselMobileState extends State<_ProjectImageCarouselMobile
                           width: isMobile ? 32 : 40,
                           height: isMobile ? 32 : 40,
                           decoration: BoxDecoration(
-                            color: AppColors.bgDark.withValues(alpha: 0.7),
+                            color: AppColors.bgDark.withOpacity(0.7),
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
                             Icons.chevron_left,
-                            color: Colors.white.withValues(alpha: 0.8),
+                            color: Colors.white.withOpacity(0.8),
                             size: isMobile ? 20 : 24,
                           ),
                         ),
@@ -753,12 +758,12 @@ class _ProjectImageCarouselMobileState extends State<_ProjectImageCarouselMobile
                           width: isMobile ? 32 : 40,
                           height: isMobile ? 32 : 40,
                           decoration: BoxDecoration(
-                            color: AppColors.bgDark.withValues(alpha: 0.7),
+                            color: AppColors.bgDark.withOpacity(0.7),
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
                             Icons.chevron_right,
-                            color: Colors.white.withValues(alpha: 0.8),
+                            color: Colors.white.withOpacity(0.8),
                             size: isMobile ? 20 : 24,
                           ),
                         ),
@@ -775,7 +780,7 @@ class _ProjectImageCarouselMobileState extends State<_ProjectImageCarouselMobile
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
               widget.imagePaths.length,
-              (index) => GestureDetector(
+                  (index) => GestureDetector(
                 onTap: () {
                   _pageController.animateToPage(
                     index,
@@ -790,9 +795,9 @@ class _ProjectImageCarouselMobileState extends State<_ProjectImageCarouselMobile
                   height: isMobile ? 6 : 8,
                   decoration: BoxDecoration(
                     color:
-                        _currentPage == index
-                            ? AppColors.bgDark.withValues(alpha: 0.8)
-                            : AppColors.bgDark.withValues(alpha: 0.3),
+                    _currentPage == index
+                        ? AppColors.bgDark.withOpacity(0.8)
+                        : AppColors.bgDark.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(4),
                   ),
                 ),
