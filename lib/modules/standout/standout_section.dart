@@ -132,7 +132,7 @@ class _StandOutSectionState extends State<StandOutSection> {
                     fontWeight: FontWeight.w900,
                     color: AppColors.accent,
                     height: 0.75,
-                    letterSpacing: -4,
+                    letterSpacing: isMobile?0:-2,
                     shadows: [
                       Shadow(color: AppColors.bgDark.withValues(alpha: 0.8), offset: const Offset(2, 2), blurRadius: 8),
                     ],
@@ -154,7 +154,7 @@ class _StandOutSectionState extends State<StandOutSection> {
                     fontWeight: FontWeight.w900,
                     color: AppColors.textPrimary.withValues(alpha: 0.9),
                     height: 0.85,
-                    letterSpacing: 30,
+                    letterSpacing: isMobile?10:30,
                     shadows: [
                       Shadow(color: AppColors.bgDark.withValues(alpha: 0.8), offset: const Offset(2, 2), blurRadius: 8),
                     ],
@@ -176,7 +176,7 @@ class _StandOutSectionState extends State<StandOutSection> {
                     fontWeight: FontWeight.w900,
                     color: AppColors.textPrimary,
                     height: 0.75,
-                    letterSpacing: -5,
+                    letterSpacing: isMobile?4:-2,
                     shadows: [
                       Shadow(color: AppColors.bgDark.withValues(alpha: 0.8), offset: const Offset(2, 2), blurRadius: 8),
                     ],
