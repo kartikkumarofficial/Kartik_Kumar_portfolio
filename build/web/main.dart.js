@@ -83512,26 +83512,26 @@ A.aiI.prototype={
 $0(){return this.a.w=!1},
 $S:0}
 A.Hc.prototype={
-L(a5){var s,r,q,p,o,n,m=this,l=null,k="(About.)",j="Years\nExperience",i="Projects\nCompleted",h="Millions",g="of Codes\nWritten",f="Hundreds",e="of Screen\nDesigned",d="Coffee\nConsumed",c=t.w,b=A.Y(a5,l,c).w.a.a,a=b<768,a0=b>=768&&b<1024,a1=A.Y(a5,l,c).w,a2=A.Y(a5,l,c).w,a3=a?16:24,a4=a?16:24
-if(a){s=A.R(a5).ok.y
+L(a6){var s,r,q,p,o,n,m=this,l=null,k="(About.)",j="I'm Kartik, visual engineer. I use Flutter to craft digital anatomies where the elegance of architecture and the beauty of design assembled to deliver efficient- high performing solutions.",i="Years\nExperience",h="Projects\nCompleted",g="Millions",f="of Codes\nWritten",e="Hundreds",d="of Screen\nDesigned",c="Coffee\nConsumed",b=t.w,a=A.Y(a6,l,b).w.a.a,a0=a<768,a1=a>=768&&a<1024,a2=A.Y(a6,l,b).w,a3=A.Y(a6,l,b).w,a4=a0?16:24,a5=a0?16:24
+if(a0){s=A.R(a6).ok.y
 s=A.cH(A.aZ(k,l,l,l,l,l,l,l,s==null?l:s.no(B.m,B.al),l,l,l),B.au,B.aN)
-r=A.R(a5).ok.e
-s=A.bY(A.b([s,B.kO,A.cH(new A.c6(B.mW,A.awl("I'm Raihan, visual engineer. I use Flutter and Figma to craft digital anatomies where the elegance of architecture and the beauty of design assembled to deliver efficient- high performing solutions.",6,16,r==null?l:r.no(B.m,B.al),B.aK),l),B.X,B.aN)],t.p),B.w,B.bn,B.u)}else{q=a0?0.35:0.3
-p=a0?0.55:0.5
-s=A.Y(a5,l,c).w
-r=A.Y(a5,l,c).w
-o=A.R(a5).ok.y
+r=A.R(a6).ok.e
+s=A.bY(A.b([s,B.kO,A.cH(new A.c6(B.mW,A.awl(j,6,16,r==null?l:r.no(B.m,B.al),B.aK),l),B.X,B.aN)],t.p),B.w,B.bn,B.u)}else{q=a1?0.35:0.3
+p=a1?0.55:0.5
+s=A.Y(a6,l,b).w
+r=A.Y(a6,l,b).w
+o=A.R(a6).ok.y
 s=A.cH(A.aP(B.Q,A.aZ(k,l,l,l,l,l,l,l,o==null?l:o.no(B.m,B.al),l,l,l),B.l,l,l,l,l,l,l,l,l,l,l,s.a.a*q-r.a.a*0.022),B.au,B.aN)
-r=A.Y(a5,l,c).w
-o=A.Y(a5,l,c).w
-n=A.R(a5).ok.d
-s=A.da(A.b([s,A.cH(new A.ay(r.a.a*p-o.a.a*0.022,l,A.awl("I'm Kartik, visual engineer. I use Flutter to craft digital anatomies where the elegance of architecture and the beauty of design assembled to deliver efficient- high performing solutions.",l,12,n==null?l:n.no(B.m,B.al),l),l),B.X,B.aN)],t.p),B.w,B.C,B.u)}s=A.hr(s,1)
-a=A.Y(a5,l,c).w.a.a<768
-c=a?16:32
+r=A.Y(a6,l,b).w
+o=A.Y(a6,l,b).w
+n=A.R(a6).ok.d
+s=A.da(A.b([s,A.cH(new A.ay(r.a.a*p-o.a.a*0.022,l,A.awl(j,l,12,n==null?l:n.no(B.m,B.al),l),l),B.X,B.aN)],t.p),B.w,B.C,B.u)}s=A.hr(s,1)
+a0=A.Y(a6,l,b).w.a.a<768
+b=a0?16:32
 r=B.m.aw(0.1)
 o=t.p
-n=a?A.bY(A.b([A.da(A.b([A.cH(m.jC(a5,"2+",j),B.mO,B.av),A.cH(m.jC(a5,"10+",i),B.mP,B.aN),A.cH(m.jC(a5,h,g),B.aN,B.aN)],o),B.w,B.eR,B.u),B.kN,A.da(A.b([B.z0,A.cH(m.jC(a5,f,e),B.mQ,B.aN),A.cH(m.jC(a5,"\u221e",d),B.mR,B.aN),B.z0],o),B.w,B.eR,B.u)],o),B.w,B.C,B.u):A.da(A.b([A.cH(m.jC(a5,"5+",j),B.mO,B.av),A.cH(m.jC(a5,"10+",i),B.mP,B.aN),A.cH(m.jC(a5,h,g),B.aN,B.aN),A.cH(m.jC(a5,f,e),B.mQ,B.aN),A.cH(m.jC(a5,"\u221e",d),B.mR,B.aN)],o),B.w,B.eR,B.u)
-return A.aP(l,A.bY(A.b([s,A.aP(l,n,B.l,l,l,new A.bd(l,l,new A.d0(new A.aT(r,1,B.y,-1),B.v,B.v,B.v),l,l,l,B.E),l,l,l,l,new A.ak(c,24,c,24),l,l,l)],o),B.w,B.c7,B.u),B.l,l,l,l,l,a1.a.b,B.V_,l,new A.ak(a3,64,a4,48),l,l,b-a2.a.a*0.022*2)},
+n=a0?A.bY(A.b([A.da(A.b([A.cH(m.jC(a6,"2+",i),B.mO,B.av),A.cH(m.jC(a6,"10+",h),B.mP,B.aN),A.cH(m.jC(a6,g,f),B.aN,B.aN)],o),B.w,B.eR,B.u),B.kN,A.da(A.b([B.z0,A.cH(m.jC(a6,e,d),B.mQ,B.aN),A.cH(m.jC(a6,"\u221e",c),B.mR,B.aN),B.z0],o),B.w,B.eR,B.u)],o),B.w,B.C,B.u):A.da(A.b([A.cH(m.jC(a6,"5+",i),B.mO,B.av),A.cH(m.jC(a6,"10+",h),B.mP,B.aN),A.cH(m.jC(a6,g,f),B.aN,B.aN),A.cH(m.jC(a6,e,d),B.mQ,B.aN),A.cH(m.jC(a6,"\u221e",c),B.mR,B.aN)],o),B.w,B.eR,B.u)
+return A.aP(l,A.bY(A.b([s,A.aP(l,n,B.l,l,l,new A.bd(l,l,new A.d0(new A.aT(r,1,B.y,-1),B.v,B.v,B.v),l,l,l,B.E),l,l,l,l,new A.ak(b,24,b,24),l,l,l)],o),B.w,B.c7,B.u),B.l,l,l,l,l,a2.a.b,B.V_,l,new A.ak(a4,64,a5,48),l,l,a-a3.a.a*0.022*2)},
 jC(a,b,c){var s,r,q=null,p=A.Y(a,q,t.w).w.a.a<768,o=A.R(a).ok.e
 if(o==null)o=q
 else o=o.j9(B.K,p?24:q,B.al)
