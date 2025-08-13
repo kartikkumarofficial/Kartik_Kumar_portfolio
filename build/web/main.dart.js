@@ -84313,7 +84313,7 @@ s.aj()
 this.am()},
 Rt(){var s=new A.cV(Date.now(),0,!1).aoK().vW(198e8)
 this.ad(new A.akf(this,A.aH5("h:mm a"),s))},
-L(a){var s,r,q,p,o,n,m=null,l="\xa9 2025 Kartik.",k="work.kartikkumar@gmail.com",j=t.w,i=A.Y(a,m,j).w.a.a<768,h=B.m.aw(0.1),g=A.Y(a,m,j).w.a.a*0.022
+L(a){var s,r,q,p,o,n,m=null,l="\xa9 2025 Kartik.",k="work.kartikkumar@gmail.com",j=t.w,i=A.Y(a,m,j).w.a.a<768,h=i?35:50,g=i?8:11,f=i?-3.5:-5,e=B.m.aw(0.1),d=A.Y(a,m,j).w.a.a*0.022
 j=i?A.Y(a,m,j).w.a.b*0.035*0.6:A.Y(a,m,j).w.a.b*0.035
 s=t.p
 r=A.b([],s)
@@ -84332,8 +84332,8 @@ o=this.e
 n=A.R(a).ok.z
 n=n==null?m:n.cm(B.m.aw(0.7))
 r.push(A.cZ(A.b([q,p,A.aZ("India "+o,m,m,m,m,m,m,m,n,m,m,m),B.Mg],s),B.w,B.c7,B.u))}r.push(new A.ay(m,i?16:24,m,m))
-r.push(A.cZ(A.b([A.aZ("KARTIK",m,m,m,m,m,m,m,A.avs().$3$fontSize$fontWeight$letterSpacing(50,B.c2,0),m,m,m),new A.c6(new A.ak(0,11,0,0),A.aZ(" Kumar",m,m,m,m,m,m,m,A.eI(m,m,m,m,m,m,m,m,"BurguesScript",m,m,50,m,m,m,m,m,!0,m,-5,m,m,m,m,m,m),m,m,m),m)],s),B.w,B.bn,B.u))
-return A.ot(new A.c6(new A.ak(g,j,g,j),A.bY(r,B.w,B.C,B.u),m),new A.bd(B.o,m,new A.d1(new A.aT(h,1,B.y,-1),B.v,B.v,B.v),m,m,m,B.E),B.cr)}}
+r.push(A.cZ(A.b([A.aZ("KARTIK",m,m,m,m,m,m,m,A.avs().$3$fontSize$fontWeight$letterSpacing(h,B.c2,0),m,m,m),new A.c6(new A.ak(0,g,0,0),A.aZ(" Kumar",m,m,m,m,m,m,m,A.eI(m,m,m,m,m,m,m,m,"BurguesScript",m,m,h,m,m,m,m,m,!0,m,f,m,m,m,m,m,m),m,m,m),m)],s),B.w,B.bn,B.u))
+return A.ot(new A.c6(new A.ak(d,j,d,j),A.bY(r,B.w,B.C,B.u),m),new A.bd(B.o,m,new A.d1(new A.aT(e,1,B.y,-1),B.v,B.v,B.v),m,m,m,B.E),B.cr)}}
 A.akg.prototype={
 $1(a){return this.a.Rt()},
 $S:75}
@@ -84705,7 +84705,7 @@ l=A.afn(A.nW().$4$color$fontSize$fontWeight$letterSpacing(B.m,16,B.n,0.5),A.nW()
 m=A.awj(k,k,B.o,!0,0,B.m,k,k,k,k,k,k,k,k,A.w1().$3$color$fontSize$fontWeight(B.m,24,B.n),k,k)
 n=A.axk(k,k,B.K,k,k,k,0,k,k,B.m,k,k,B.Eo,k,new A.cL(A.c9(8),B.v),k,k,k,k,k)
 l=A.ul(m,k,new A.r9(k,B.iL,k,k,0,k,new A.cL(A.c9(16),B.v)),B.Cd,new A.rE(n),B.O,B.o,B.BT,l,!0)
-return new A.z7(A.abH(B.o,new A.zD(new A.ahj(this,s),k)),"Kartik Kumar",l,!1,k)}}
+return new A.z7(A.abH(B.o,new A.zD(new A.ahj(this,s),k)),"Kartik Kumar | Portfolio",l,!1,k)}}
 A.ahh.prototype={
 $0(){var s=this.a
 if(s.c!=null){s=s.d
