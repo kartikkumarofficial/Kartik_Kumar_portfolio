@@ -87,7 +87,8 @@ class _FooterState extends State<Footer> {
                 ),
               ],
             ),
-            isMobile?SizedBox(height: 5,):SizedBox(height: 0,)
+            isMobile?SizedBox(height: 5,):SizedBox(height: 0,),
+
           ],
         ),
       ),
