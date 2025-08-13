@@ -34,7 +34,7 @@ class _FooterState extends State<Footer> {
 
   void _updateTime() {
     final utcNow = DateTime.now().toUtc();
-    final istTime = utcNow.add(const Duration(hours: 5,minutes: 30));
+    final istTime = utcNow.add(const Duration(hours: 5, minutes: 30));
     final formatter = DateFormat('h:mm a');
     setState(() {
       _IndiaTime = formatter.format(istTime);
@@ -45,6 +45,10 @@ class _FooterState extends State<Footer> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 768;
+
+    final double nameFontSize = isMobile ? 35 : 50;
+    final double kumarPaddingTop = isMobile ? 8 : 11;
+    final double kumarLetterSpacing = isMobile ? -3.5 : -5;
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -64,37 +68,25 @@ class _FooterState extends State<Footer> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('KARTIK',
+                Text(
+                  'KARTIK',
                   style: GoogleFonts.inter(
-                      fontSize: 50,
+                      fontSize: nameFontSize,
                       fontWeight: FontWeight.w600,
-                      letterSpacing: 0
-                  ),),
+                      letterSpacing: 0),
+                ),
                 Padding(
-                  padding:  EdgeInsets.only(top: 11),
-                  child: Text(' Kumar',
+                  padding: EdgeInsets.only(top: kumarPaddingTop),
+                  child: Text(
+                    ' Kumar',
                     style: TextStyle(
                         fontFamily: 'BurguesScript',
-                        fontSize: 50,
-                        // fontWeight: FontWeight.w600,
-                        letterSpacing: -5
-                    ),),
+                        fontSize: nameFontSize,
+                        letterSpacing: kumarLetterSpacing),
+                  ),
                 ),
-
-
-              ],),
-            // Image.asset(
-            //   'assets/images/logo_bg_enh.png',
-            //   fit: BoxFit.fitWidth,
-            //   height: isMobile ? 40 : 60,
-            //   errorBuilder:
-            //       (context, error, stackTrace) => Container(
-            //         height: isMobile ? 40 : 60,
-            //         width: 100,
-            //         color: AppColors.textPrimary.withValues(alpha: 0.1),
-            //         child: const Icon(Icons.image_not_supported, color: AppColors.textPrimary),
-            //       ),
-            // ),
+              ],
+            ),
           ],
         ),
       ),
@@ -116,7 +108,6 @@ class _FooterState extends State<Footer> {
         'India $_IndiaTime',
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.textPrimary.withValues(alpha: .7)),
       ),
-
       const Row(
         children: [
           _SocialIcon(icon: Icons.code, tooltip: 'GitHub', url: 'https://github.com/kartikkumarofficial'),
