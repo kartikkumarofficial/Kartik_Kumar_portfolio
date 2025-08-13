@@ -191,9 +191,11 @@ class _ContactSectionState extends State<ContactSection> {
   }
 
   Widget _buildContent(ThemeData theme) {
-    // Get screen width to make the button responsive
+
+
     final screenWidth = MediaQuery.of(context).size.width;
-    // Define a breakpoint for when to show the button text
+    final isMobile = screenWidth < 600;
+
     final showButtonText = screenWidth > 320;
 
     return Column(
@@ -213,7 +215,7 @@ class _ContactSectionState extends State<ContactSection> {
           key: _formKey,
           child: Column(
             children: [
-              // ... Your TextFormFields remain the same ...
+
               TextFormField(
                 controller: _nameController,
                 validator: _validateName,
@@ -297,7 +299,7 @@ class _ContactSectionState extends State<ContactSection> {
               const SizedBox(height: 16),
               SizedBox(
                 width: double.infinity,
-                height: 44,
+                height: isMobile?50:44,
                 child: ElevatedButton(
                   onPressed: _isSubmitting ? null : _handleSubmit,
                   style: ElevatedButton.styleFrom(
@@ -316,7 +318,6 @@ class _ContactSectionState extends State<ContactSection> {
                         height: 20,
                         child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
                       ),
-                      // Conditionally show the "Sending..." text
                       if (showButtonText)
                         const SizedBox(width: 12),
                       if (showButtonText)
@@ -330,8 +331,8 @@ class _ContactSectionState extends State<ContactSection> {
                       // Conditionally show the "Send Message" text and its padding
                       if (showButtonText)
                         const SizedBox(width: 8),
-                      if (showButtonText)
-                        const Text('Send Message', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+
+                        Text('Send Message', style: TextStyle(fontSize:isMobile?15:16, fontWeight: FontWeight.w600)),
                     ],
                   ),
                 ),
