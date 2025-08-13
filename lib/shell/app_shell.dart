@@ -60,7 +60,7 @@ class _AppShellState extends State<AppShell> with SingleTickerProviderStateMixin
     final controller = Get.put(AppShellController());
 
     return MaterialApp(
-      title: 'Kartik Kumar',
+      title: 'Kartik Kumar | Portfolio',
       theme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
