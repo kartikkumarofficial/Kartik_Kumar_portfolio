@@ -64,7 +64,7 @@ class _ScrollRevealState extends State<ScrollReveal> with SingleTickerProviderSt
       return;
     }
 
-    final isVisible = info.visibleFraction > 0.2; // Increased from 0.1 to 0.2 for better bottom-biased reveals
+    final isVisible = info.visibleFraction > 0.2;
 
     if (MediaQuery.disableAnimationsOf(context)) {
       _controller.value = 1.0;
