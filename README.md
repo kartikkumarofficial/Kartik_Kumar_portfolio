@@ -1,3 +1,6 @@
+Credits to the original creator of the website developed by @Iraihan (Raihan Fadli): https://github.com/lraihan/polymorphism
+Original site: https://polymorphism-two.vercel.app/
+
 # 🌐 Kartik Kumar — Portfolio
 
 Welcome to my personal portfolio! Dive into a modern, interactive showcase of my projects, skills, and experience - all crafted with Dart and Flutter Web.
