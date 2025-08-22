@@ -29,9 +29,10 @@ Welcome to my personal portfolio! Dive into a modern, interactive showcase of my
 
 ---
 
-## 📄 License
+## 📄 Credits
 
-Open source & free to use.
+Credits to the original creator of the website developed by @Iraihan (Raihan Fadli): https://github.com/lraihan/polymorphism
+Original site: https://polymorphism-two.vercel.app/
 
 ---
 
