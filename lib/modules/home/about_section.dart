@@ -53,7 +53,7 @@ class AboutSection extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
           child: AutoSizeText(
-            "I'm Kartik, visual engineer. I use Flutter to craft digital anatomies where the elegance of architecture and the beauty of design assembled to deliver efficient- high performing solutions.",
+            "I’m Kartik, a Digital Craftsman. With Flutter as my canvas, I blend structure and imagination to engineer seamless experiences - where design meets performance and ideas come alive.",
             style: Theme.of(
               context,
             ).textTheme.headlineMedium?.copyWith(color: AppColors.textPrimary, fontWeight: FontWeight.bold),
@@ -92,7 +92,7 @@ class AboutSection extends StatelessWidget {
           child: SizedBox(
             width: screenWidth(context) * contentWidth - horizontalPadding(context),
             child: AutoSizeText(
-              "I'm Kartik, visual engineer. I use Flutter to craft digital anatomies where the elegance of architecture and the beauty of design assembled to deliver efficient- high performing solutions.",
+              "I’m Kartik, a Digital Craftsman. With Flutter as my canvas, I blend structure and imagination to engineer seamless experiences — where design meets performance and ideas come alive.",
               style: Theme.of(
                 context,
               ).textTheme.headlineLarge?.copyWith(color: AppColors.textPrimary, fontWeight: FontWeight.bold),

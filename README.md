@@ -31,7 +31,7 @@ Welcome to my personal portfolio! Dive into a modern, interactive showcase of my
 
 ## 📄 Credits
 
-Credits to the original creator of the website developed by @Iraihan (Raihan Fadli): https://github.com/lraihan/polymorphism
+Credits to the original creator from whose website I have taken inspiration: (Raihan Fadli) https://github.com/lraihan/polymorphism
 
 ---
 
