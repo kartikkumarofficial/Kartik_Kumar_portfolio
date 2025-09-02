@@ -139,7 +139,7 @@ class AboutSection extends StatelessWidget {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const SizedBox(width: 60), // Spacer for alignment
+          const SizedBox(width: 60),
           ScrollReveal(
             delay: const Duration(milliseconds: 1250),
             duration: const Duration(milliseconds: 1200),
@@ -150,7 +150,7 @@ class AboutSection extends StatelessWidget {
             duration: const Duration(milliseconds: 1200),
             child: _buildStatItem(context, '∞', 'Coffee\nConsumed'),
           ),
-          const SizedBox(width: 60), // Spacer for alignment
+          const SizedBox(width: 60),
         ],
       ),
     ],
