@@ -197,7 +197,7 @@ class AboutSection extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             color: AppColors.accent,
             fontWeight: FontWeight.w700,
-            fontSize: isMobile ? 24 : null, // Smaller on mobile
+            fontSize: isMobile ? 24 : null,
           ),
         ),
         const SizedBox(height: AppSpacing.xs),
@@ -206,7 +206,7 @@ class AboutSection extends StatelessWidget {
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
             color: AppColors.textPrimary.withValues(alpha: 0.7),
             letterSpacing: 0.5,
-            fontSize: isMobile ? 12 : null, // Smaller on mobile
+            fontSize: isMobile ? 12 : null,
           ),
           textAlign: TextAlign.center,
         ),
