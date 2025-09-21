@@ -121,7 +121,7 @@ class AboutSection extends StatelessWidget {
         children: [
           ScrollReveal(
             delay: const Duration(milliseconds: 1100),
-            child: _buildStatItem(context, '2+', 'Years\nExperience'),
+            child: _buildStatItem(context, '1+', 'Years\nExperience'),
           ),
           ScrollReveal(
             delay: const Duration(milliseconds: 1150),
@@ -161,7 +161,7 @@ class AboutSection extends StatelessWidget {
     children: [
       ScrollReveal(
         delay: const Duration(milliseconds: 1100),
-        child: _buildStatItem(context, '2+', 'Years\nExperience'),
+        child: _buildStatItem(context, '1+', 'Years\nExperience'),
       ),
       ScrollReveal(
         delay: const Duration(milliseconds: 1150),
