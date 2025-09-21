@@ -312,6 +312,7 @@ class _WorksSectionState extends State<WorksSection> {
               projectType == ProjectType.mobile
                   ? _ProjectImageCarouselMobile(
                 imagePaths: [
+
                   imagePath,
                   imagePath.replaceAll('-1.', '-2.'),
                   imagePath.replaceAll('-1.', '-3.'),
