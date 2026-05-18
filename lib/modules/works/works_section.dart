@@ -112,9 +112,9 @@ class _WorksSectionState extends State<WorksSection> {
           if (isMobile) ...[
             _buildProject(
               context,
-              'CivicTrack',
-              'CivicTrack is a community-driven platform that empowers citizens to report local civic issues like potholes, water leaks, garbage overflow, and more — all within a 3–5 km radius. With real-time updates, map-based tracking, and admin moderation, CivicTrack bridges the gap between the public and the authorities for a cleaner, safer neighborhood.',
-              'assets/images/works/pr1-1.jpg',
+              'ElderCare',
+              'ElderCare is a connected caregiving platform built to simplify coordination between caregivers and care receivers. It supports real-time monitoring, medication and task reminders, emergency SOS alerts, live location tracking, and seamless communication — all designed for reliable, frictionless daily care.',
+              'assets/images/works/pr4-1.jpg',
               ProjectType.mobile,
             ),
             _buildProject(
@@ -129,14 +129,21 @@ class _WorksSectionState extends State<WorksSection> {
               'DashSocial',
               'DashSocial is a responsive and feature-rich Flutter app that helps creators and marketers manage their Instagram presence. It includes analytics dashboards, post scheduling, user profile handling, and real-time visualizations — all integrated with a mock Instagram API served via Mockoon.',
               'assets/images/works/pr3-1.jpg',
+              ProjectType.mobile,
+            ),
+            _buildProject(
+              context,
+              'CivicTrack',
+              'CivicTrack is a community-driven platform that empowers citizens to report local civic issues like potholes, water leaks, garbage overflow, and more — all within a 3–5 km radius. With real-time updates, map-based tracking, and admin moderation, CivicTrack bridges the gap between the public and the authorities for a cleaner, safer neighborhood.',
+              'assets/images/works/pr1-1.jpg',
               ProjectType.mobile,
             ),
           ] else ...[
             _buildProject(
               context,
-              'CivicTrack',
-              'CivicTrack is a community-driven platform that empowers citizens to report local civic issues like potholes, water leaks, garbage overflow, and more — all within a 3–5 km radius. With real-time updates, map-based tracking, and admin moderation, CivicTrack bridges the gap between the public and the authorities for a cleaner, safer neighborhood.',
-              'assets/images/works/pr1-1.jpg',
+              'ElderCare',
+              'ElderCare is a connected caregiving platform built to simplify coordination between caregivers and care receivers. It supports real-time monitoring, medication and task reminders, emergency SOS alerts, live location tracking, and seamless communication — all designed for reliable, frictionless daily care.',
+              'assets/images/works/pr4-1.jpg',
               ProjectType.mobile,
             ),
             _buildProject(
@@ -151,6 +158,13 @@ class _WorksSectionState extends State<WorksSection> {
               'DashSocial',
               'DashSocial is a responsive and feature-rich Flutter app that helps creators and marketers manage their Instagram presence. It includes analytics dashboards, post scheduling, user profile handling, and real-time visualizations — all integrated with a mock Instagram API served via Mockoon.',
               'assets/images/works/pr3-1.jpg',
+              ProjectType.mobile,
+            ),
+            _buildProject(
+              context,
+              'CivicTrack',
+              'CivicTrack is a community-driven platform that empowers citizens to report local civic issues like potholes, water leaks, garbage overflow, and more — all within a 3–5 km radius. With real-time updates, map-based tracking, and admin moderation, CivicTrack bridges the gap between the public and the authorities for a cleaner, safer neighborhood.',
+              'assets/images/works/pr1-1.jpg',
               ProjectType.mobile,
             ),
           ],
